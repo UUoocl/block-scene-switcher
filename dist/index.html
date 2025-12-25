@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBS Blockly</title>
+    <!-- CRITICAL: esbuild generates bundle.css when bundling main.ts -->
+    <link rel="stylesheet" href="bundle.css">
+</head>
+<body>
+    <div class="header">
+        <button id="save" style="background: #4CAF50; color: white;">Save Flow</button>
+        <button id="deploy" style="background: #FF9800; color: white;">Deploy to OBS</button>
+        <span id="status-bar">OBS Status: <b id="status">Connecting...</b></span>
+    </div>
+
+    <div id="blocklyDiv"></div>
+
+    <script src="bundle.js"></script>
+</body>
+</html>

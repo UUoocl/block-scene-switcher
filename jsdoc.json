@@ -1,0 +1,16 @@
+{
+  "source": {
+    "includePattern": ".+\\.(js|ts)$",
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+  },
+  "plugins": ["jsdoc-babel"],
+  "babel": {
+    "extensions": "ts",
+    "ignore": ["**/*.(test|spec).ts"]
+  },
+  "opts": {
+    "destination": "docs",
+    "recurse": true
+  }
+}

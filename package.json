@@ -1,0 +1,29 @@
+{
+  "name": "block-scene-switcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.json",
+    "dev": "esbuild src/main.ts --bundle --outfile=../testVault/block-scene-switcher/bundle.js --loader:.css=css --minify && cp ./src/index.html ../testVault/block-scene-switcher/index.html",
+    "watch": "esbuild src/main.ts --bundle --outfile=../testVault/block-scene-switcher/bundle.js --loader:.css=css --watch",
+    "build": "esbuild src/main.ts --bundle --outfile=./dist/block-scene-switcher.js --loader:.css=css --minify && cp ./src/index.html ./dist/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/node": "^25.0.3",
+    "esbuild": "^0.27.2",
+    "jsdoc": "^4.0.5",
+    "jsdoc-babel": "^0.5.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "blockly": "^12.3.1",
+    "obs-websocket-js": "^5.0.7"
+  }
+}

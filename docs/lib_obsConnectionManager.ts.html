@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/obsConnectionManager.ts</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/obsConnectionManager.ts</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file obsConnectionManager.ts
  * @description Manages the lifecycle of the OBS WebSocket connection.
  * It attempts multiple discovery methods to find connection details before falling back to a user modal.
@@ -15,7 +43,7 @@ import { WSSDetails, OBSWebSocketWithStatus } from '../types';
  * Initiates the connection process to OBS Studio.
  * Tries several methods to retrieve connection details (API, LocalStorage, CSS variables, URL params).
  * Falls back to a manual connection modal if all automated methods fail.
- * @returns {Promise<void>}
+ * @returns {Promise&lt;void>}
  */
 export async function manageObsConnection() {
     const obsWss = ensureGlobalObsWss();
@@ -33,7 +61,7 @@ export async function manageObsConnection() {
 
     for (const method of methods) {
         const details = await method();
-        if (details && (await connectOBS(obsWss, details)) === 'connected') {
+        if (details &amp;&amp; (await connectOBS(obsWss, details)) === 'connected') {
             return; // Success
         }
     }
@@ -132,9 +160,9 @@ const updateStatusIdentified = () => { if (window.obsWss) window.obsWss.connecte
  * Attempts to connect to OBS Studio using the provided details.
  * @param {OBSWebSocketWithStatus} obsWss
  * @param {WSSDetails} wssDetails
- * @returns {Promise<'connected' | 'failed'>}
+ * @returns {Promise&lt;'connected' | 'failed'>}
  */
-async function connectOBS(obsWss: OBSWebSocketWithStatus, wssDetails: WSSDetails): Promise<'connected' | 'failed'> {
+async function connectOBS(obsWss: OBSWebSocketWithStatus, wssDetails: WSSDetails): Promise&lt;'connected' | 'failed'> {
     try {
         await obsWss.disconnect().catch(() => {}); // Gracefully disconnect if already connected
         await obsWss.connect(`ws://${wssDetails.IP}:${wssDetails.PORT}`, wssDetails.PW, { rpcVersion: 1 });
@@ -154,9 +182,9 @@ async function connectOBS(obsWss: OBSWebSocketWithStatus, wssDetails: WSSDetails
 
 /**
  * Fetches connection details from a local API endpoint.
- * @returns {Promise<WSSDetails | null>}
+ * @returns {Promise&lt;WSSDetails | null>}
  */
-async function fetchApiDetails(): Promise<WSSDetails | null> {
+async function fetchApiDetails(): Promise&lt;WSSDetails | null> {
     try {
         const res = await fetch('/api/obswss');
         if (res.ok) return await res.json();
@@ -195,6 +223,28 @@ function getUrlParamDetails(): WSSDetails | null {
     const params = new URLSearchParams(window.location.search);
     const IP = params.get('wssip');
     const PORT = params.get('wssport');
-    if (IP && PORT) return { IP, PORT, PW: params.get('wsspw') || '' };
+    if (IP &amp;&amp; PORT) return { IP, PORT, PW: params.get('wsspw') || '' };
     return null;
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#connectOBS">connectOBS</a></li><li><a href="global.html#defineObsBlocks">defineObsBlocks</a></li><li><a href="global.html#ensureGlobalObsWss">ensureGlobalObsWss</a></li><li><a href="global.html#fetchApiDetails">fetchApiDetails</a></li><li><a href="global.html#fetchLocalList">fetchLocalList</a></li><li><a href="global.html#fetchObsidianList">fetchObsidianList</a></li><li><a href="global.html#forceStopDeployment">forceStopDeployment</a></li><li><a href="global.html#getCssVariableDetails">getCssVariableDetails</a></li><li><a href="global.html#getLocalStorageDetails">getLocalStorageDetails</a></li><li><a href="global.html#getUrlParamDetails">getUrlParamDetails</a></li><li><a href="global.html#initDeployHandlers">initDeployHandlers</a></li><li><a href="global.html#initFileHandlers">initFileHandlers</a></li><li><a href="global.html#initLoadModal">initLoadModal</a></li><li><a href="global.html#initObsGenerators">initObsGenerators</a></li><li><a href="global.html#initSaveModal">initSaveModal</a></li><li><a href="global.html#loadAndInject">loadAndInject</a></li><li><a href="global.html#loadFromLocal">loadFromLocal</a></li><li><a href="global.html#loadFromObsidian">loadFromObsidian</a></li><li><a href="global.html#manageObsConnection">manageObsConnection</a></li><li><a href="global.html#refreshFileList">refreshFileList</a></li><li><a href="global.html#saveToLocal">saveToLocal</a></li><li><a href="global.html#saveToObsidian">saveToObsidian</a></li><li><a href="global.html#sceneOptions">sceneOptions</a></li><li><a href="global.html#setSceneOptions">setSceneOptions</a></li><li><a href="global.html#setupEventListeners">setupEventListeners</a></li><li><a href="global.html#showConnectionModal">showConnectionModal</a></li><li><a href="global.html#stopDeployment">stopDeployment</a></li><li><a href="global.html#triggerDeployment">triggerDeployment</a></li><li><a href="global.html#updateButtonStyle">updateButtonStyle</a></li><li><a href="global.html#workspace">workspace</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon Jan 05 2026 13:10:21 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

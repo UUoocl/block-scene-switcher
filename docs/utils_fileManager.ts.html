@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/fileManager.ts</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/fileManager.ts</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file fileManager.ts
  * @description Manages saving and loading of Blockly workspace data to/from LocalStorage or an Obsidian-hosted API.
  * 
@@ -28,9 +56,9 @@ export function initFileHandlers(workspace: Blockly.WorkspaceSvg) {
  * @param {string} filename - The name of the file to load.
  * @param {StorageSource} source - Either 'local' or 'obsidian'.
  * @param {Blockly.WorkspaceSvg} workspace
- * @returns {Promise<boolean>} - True if loading succeeded.
+ * @returns {Promise&lt;boolean>} - True if loading succeeded.
  */
-export async function loadAndInject(filename: string, source: StorageSource, workspace: Blockly.WorkspaceSvg): Promise<boolean> {
+export async function loadAndInject(filename: string, source: StorageSource, workspace: Blockly.WorkspaceSvg): Promise&lt;boolean> {
     try {
         if (source === 'obsidian') {
             await loadFromObsidian(filename, workspace);
@@ -186,7 +214,7 @@ async function refreshFileList(source: StorageSource, workspace: Blockly.Workspa
     const container = document.getElementById('fileList');
     if (!container) return;
 
-    container.innerHTML = '<div style="padding:10px; color:#ccc;">Loading...</div>';
+    container.innerHTML = '&lt;div style="padding:10px; color:#ccc;">Loading...&lt;/div>';
 
     let files: string[] = [];
 
@@ -199,7 +227,7 @@ async function refreshFileList(source: StorageSource, workspace: Blockly.Workspa
     container.innerHTML = '';
     
     if (files.length === 0) {
-        container.innerHTML = '<div style="padding:10px; color:#888;">No files found.</div>';
+        container.innerHTML = '&lt;div style="padding:10px; color:#888;">No files found.&lt;/div>';
         return;
     }
 
@@ -219,9 +247,9 @@ async function refreshFileList(source: StorageSource, workspace: Blockly.Workspa
 
 /**
  * Fetches the list of saved files from the Obsidian endpoint.
- * @returns {Promise<string[]>}
+ * @returns {Promise&lt;string[]>}
  */
-async function fetchObsidianList(): Promise<string[]> {
+async function fetchObsidianList(): Promise&lt;string[]> {
     try {
         const params = new URLSearchParams({ folder: SAVED_FOLDER });
         const res = await fetch(`/api/file/list?${params.toString()}`);
@@ -239,9 +267,9 @@ async function fetchObsidianList(): Promise<string[]> {
  */
 function fetchLocalList(): string[] {
     const files: string[] = [];
-    for (let i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i &lt; localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key && key.startsWith(LOCAL_PREFIX)) {
+        if (key &amp;&amp; key.startsWith(LOCAL_PREFIX)) {
             files.push(key.replace(LOCAL_PREFIX, ''));
         }
     }
@@ -273,4 +301,26 @@ function loadFromLocal(filename: string, workspace: Blockly.WorkspaceSvg) {
     
     const json = JSON.parse(dataStr);
     Blockly.serialization.workspaces.load(json, workspace);
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#connectOBS">connectOBS</a></li><li><a href="global.html#defineObsBlocks">defineObsBlocks</a></li><li><a href="global.html#ensureGlobalObsWss">ensureGlobalObsWss</a></li><li><a href="global.html#fetchApiDetails">fetchApiDetails</a></li><li><a href="global.html#fetchLocalList">fetchLocalList</a></li><li><a href="global.html#fetchObsidianList">fetchObsidianList</a></li><li><a href="global.html#forceStopDeployment">forceStopDeployment</a></li><li><a href="global.html#getCssVariableDetails">getCssVariableDetails</a></li><li><a href="global.html#getLocalStorageDetails">getLocalStorageDetails</a></li><li><a href="global.html#getUrlParamDetails">getUrlParamDetails</a></li><li><a href="global.html#initDeployHandlers">initDeployHandlers</a></li><li><a href="global.html#initFileHandlers">initFileHandlers</a></li><li><a href="global.html#initLoadModal">initLoadModal</a></li><li><a href="global.html#initObsGenerators">initObsGenerators</a></li><li><a href="global.html#initSaveModal">initSaveModal</a></li><li><a href="global.html#loadAndInject">loadAndInject</a></li><li><a href="global.html#loadFromLocal">loadFromLocal</a></li><li><a href="global.html#loadFromObsidian">loadFromObsidian</a></li><li><a href="global.html#manageObsConnection">manageObsConnection</a></li><li><a href="global.html#refreshFileList">refreshFileList</a></li><li><a href="global.html#saveToLocal">saveToLocal</a></li><li><a href="global.html#saveToObsidian">saveToObsidian</a></li><li><a href="global.html#sceneOptions">sceneOptions</a></li><li><a href="global.html#setSceneOptions">setSceneOptions</a></li><li><a href="global.html#setupEventListeners">setupEventListeners</a></li><li><a href="global.html#showConnectionModal">showConnectionModal</a></li><li><a href="global.html#stopDeployment">stopDeployment</a></li><li><a href="global.html#triggerDeployment">triggerDeployment</a></li><li><a href="global.html#updateButtonStyle">updateButtonStyle</a></li><li><a href="global.html#workspace">workspace</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon Jan 05 2026 13:10:21 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

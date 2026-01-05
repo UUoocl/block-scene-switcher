@@ -37,9 +37,29 @@ export const toolbox = {
       ]
     },
 
-    { "kind": "sep" }, 
-
-    // --- STANDARD CATEGORIES ---
+    {
+      "kind": "category",
+      "name": "Broadcast Channel",
+      "colour": "200",
+      "contents": [
+        { "kind": "block", "type": "broadcast_send" },
+        { "kind": "block", "type": "broadcast_receive" },
+                { "kind": "block", "type": "broadcast_message_object" }
+              ]
+            },
+        
+            {
+              "kind": "category",
+              "name": "SSE",
+              "colour": "210",
+              "contents": [
+                { "kind": "block", "type": "sse_listen" },
+                { "kind": "block", "type": "sse_message_object" }
+              ]
+            },
+        
+            { "kind": "sep" }, 
+            // --- STANDARD CATEGORIES ---
     {
       "kind": "category",
       "name": "Logic",

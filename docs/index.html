@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>blocks/definitions.ts</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Defines custom Blockly blocks for OBS control, Broadcast Channel API, and Server-Sent Events.
+
+COMMENTARY: Custom blocks are defined using both the JavaScript object approach 
+(for complex dynamic blocks like dropdowns) and the JSON array approach 
+(for simpler static blocks). This flexibility allows for rich UI elements 
+while maintaining ease of definition for standard blocks.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="blocks_definitions.ts.html">blocks/definitions.ts</a>, <a href="blocks_definitions.ts.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>blocks/generators.ts</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Defines the JavaScript code generation logic for custom Blockly blocks.
+
+COMMENTARY: Generators are responsible for translating visual blocks into executable
+JavaScript strings. Each generator function handles a specific block type,
+extracting field values and input connections to build the resulting code.
+The use of `javascriptGenerator.statementToCode` allows for recursive code 
+generation of nested block structures.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="blocks_generators.ts.html">blocks/generators.ts</a>, <a href="blocks_generators.ts.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>lib/obsConnectionManager.ts</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Manages the lifecycle of the OBS WebSocket connection.
+It attempts multiple discovery methods to find connection details before falling back to a user modal.
+
+COMMENTARY: The connection manager implements a robust "waterfall" discovery strategy.
+This ensures that the application can automatically connect in various environments
+(e.g., as a local file, behind a proxy, or as part of a larger dashboard system).</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_obsConnectionManager.ts.html">lib/obsConnectionManager.ts</a>, <a href="lib_obsConnectionManager.ts.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>main.ts</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Main entry point for the Block Scene Switcher application.
+This file initializes the Blockly workspace, sets up the OBS connection,
+and handles auto-deployment logic from URL parameters.
+
+COMMENTARY: The application uses a modular approach where block definitions,
+generators, and utility functions are separated into their own modules.
+This makes it easier to extend the application with new features like
+the recently added Broadcast Channel and SSE blocks.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="main.ts.html">main.ts</a>, <a href="main.ts.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>utils/deployLogic.ts</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Handles the execution and termination of the generated JavaScript code from Blockly.
+
+COMMENTARY: The deployment system uses the `eval()` function to execute the generated code.
+While `eval()` is often discouraged, in this context it serves as a lightweight engine 
+to run the visual logic. The code is wrapped in an async IIFE to support `await` 
+statements in the generated block code.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_deployLogic.ts.html">utils/deployLogic.ts</a>, <a href="utils_deployLogic.ts.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>utils/fileManager.ts</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Manages saving and loading of Blockly workspace data to/from LocalStorage or an Obsidian-hosted API.
+
+COMMENTARY: The file manager provides a unified interface for persistence across different storage backends.
+By supporting both LocalStorage and a remote API (Obsidian), it allows users to keep their 
+configurations portable and synchronized. The use of Blockly's serialization API ensures
+that workspace states are accurately preserved.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_fileManager.ts.html">utils/fileManager.ts</a>, <a href="utils_fileManager.ts.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#connectOBS">connectOBS</a></li><li><a href="global.html#defineObsBlocks">defineObsBlocks</a></li><li><a href="global.html#ensureGlobalObsWss">ensureGlobalObsWss</a></li><li><a href="global.html#fetchApiDetails">fetchApiDetails</a></li><li><a href="global.html#fetchLocalList">fetchLocalList</a></li><li><a href="global.html#fetchObsidianList">fetchObsidianList</a></li><li><a href="global.html#forceStopDeployment">forceStopDeployment</a></li><li><a href="global.html#getCssVariableDetails">getCssVariableDetails</a></li><li><a href="global.html#getLocalStorageDetails">getLocalStorageDetails</a></li><li><a href="global.html#getUrlParamDetails">getUrlParamDetails</a></li><li><a href="global.html#initDeployHandlers">initDeployHandlers</a></li><li><a href="global.html#initFileHandlers">initFileHandlers</a></li><li><a href="global.html#initLoadModal">initLoadModal</a></li><li><a href="global.html#initObsGenerators">initObsGenerators</a></li><li><a href="global.html#initSaveModal">initSaveModal</a></li><li><a href="global.html#loadAndInject">loadAndInject</a></li><li><a href="global.html#loadFromLocal">loadFromLocal</a></li><li><a href="global.html#loadFromObsidian">loadFromObsidian</a></li><li><a href="global.html#manageObsConnection">manageObsConnection</a></li><li><a href="global.html#refreshFileList">refreshFileList</a></li><li><a href="global.html#saveToLocal">saveToLocal</a></li><li><a href="global.html#saveToObsidian">saveToObsidian</a></li><li><a href="global.html#sceneOptions">sceneOptions</a></li><li><a href="global.html#setSceneOptions">setSceneOptions</a></li><li><a href="global.html#setupEventListeners">setupEventListeners</a></li><li><a href="global.html#showConnectionModal">showConnectionModal</a></li><li><a href="global.html#stopDeployment">stopDeployment</a></li><li><a href="global.html#triggerDeployment">triggerDeployment</a></li><li><a href="global.html#updateButtonStyle">updateButtonStyle</a></li><li><a href="global.html#workspace">workspace</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon Jan 05 2026 13:10:21 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
